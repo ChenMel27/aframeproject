@@ -1,28 +1,37 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>2D Image to 3D in A-Frame</title>
-    <script src="https://aframe.io/releases/1.4.0/aframe.min.js"></script>
-  </head>
+ <head>
+   <meta charset="UTF-8">
+   <title>3D Scene with Aframe</title>
+   <meta name="description" content="3D Scene with a star and heart image using Aframe">
+   <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
+   <style>
+     body {
+       margin: 0;
+       font-family: sans-serif;
+     }
+     .container {
+       width: 100%;
+       height: 100%;
+     }
+   </style>
+ </head>
 
-  <body>
-    <a-scene>
-      <!-- Set up a camera and light -->
-      <a-camera position="0 1.6 3"></a-camera>
-      <a-light type="ambient" color="#ffffff"></a-light>
+ <body>
+   <a-scene>
+     <!-- Background sky (light blue color) -->
+     <a-sky color="#87CEEB"></a-sky>
 
-      <!-- Create a 3D plane and apply the image as a texture -->
-      <a-plane src="#myImage" height="2" width="3" position="0 1 -3" rotation="0 0 0"></a-plane>
+     <!-- Plane with the star and heart image -->
+     <a-plane src="2DImage.png" position="0 1.5 -3" rotation="0 0 0" width="3" height="2"></a-plane>
 
-      <!-- Optionally, add other 3D elements for more interaction -->
-      <a-box position="1 0.5 -5" rotation="0 45 0" width="1" height="1" depth="1" color="#4CC3D9"></a-box>
+     <!-- 3D objects for extra visualization -->
+     <a-box position="-1 0.5 -3" rotation="0 45 0" color="#4CC3D9"></a-box>
+     <a-sphere position="2 1.25 -5" radius="1.25" color="#EF2D5E"></a-sphere>
+     <a-cylinder position="1 0.75 -3" radius="0.5" height="1.5" color="#FFC65D"></a-cylinder>
 
-      <!-- Image asset -->
-      <a-assets>
-        <img id="myImage" src="2DImage.png" alt="2D Image" />
-      </a-assets>
-    </a-scene>
-  </body>
+     <!-- Ground plane -->
+     <a-plane position="0 0 -4" rotation="-90 0 0" width="10" height="10" color="#7BC8A4"></a-plane>
+   </a-scene>
+ </body>
 </html>
